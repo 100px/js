@@ -21,10 +21,10 @@ function createSummaryAndThumb(pID){
 	var img = div.getElementsByTagName("img");
 	var summ = summary_noimg;
 	if(img.length>=1) {	
-		imgtag = '<div class="img-thumb"><img src="'+img[0].src+'"/></div>';
+		imgtag = '<div class="img-thumb"><img src="'+img[0].src+'" width="'+img_thumb_width+'px" height="'+img_thumb_height+'px" /></div>';
 		summ = summary_img;
 	}
 	
-	var summary = imgtag + '<div class="post-tit">' + '</div>' + '<div class="txt-thumb">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
+	var summary = imgtag + '<a class="post-ti" expr:href='data:post.link ? data:post.link : data:post.url'>' + '</a>' + '<div class="txt-thumb">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
 	div.innerHTML = summary;
 }
