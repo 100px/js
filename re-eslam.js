@@ -19,12 +19,14 @@ function createSummaryAndThumb(pID){
 	var div = document.getElementById(pID);
 	var imgtag = "";
 	var img = div.getElementsByTagName("img");
+	var tit = div.getElementsByTagName("h1")
 	var summ = summary_noimg;
 	if(img.length>=1) {	
 		imgtag = '<div class="img-thumb"><img src="'+img[0].src+'" width="'+img_thumb_width+'px" height="'+img_thumb_height+'px" /></div>';
+		tittag = '<div class="tit-thumb"><h1 href="'+tit[0].href+'" /></div>';
 		summ = summary_img;
 	}
 	
-	var summary = imgtag + '<a class="post-ti" expr:href='data:post.link ? data:post.link : data:post.url'>' + '</a>' + '<div class="txt-thumb">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
+	var summary = imgtag + tittag + '<div class="txt-thumb">' + removeHtmlTag(div.innerHTML,summ) + '</div>';
 	div.innerHTML = summary;
 }
